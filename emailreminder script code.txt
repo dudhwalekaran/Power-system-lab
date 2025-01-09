@@ -1,0 +1,42 @@
+function sendReturnReminder() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form responses 1");
+  const data = sheet.getDataRange().getValues(); // Read all data
+  const today = new Date();
+  const emailColumnIndex = 2; // Email is in column C (index 2 in zero-based array)
+  const returnDateColumnIndex = 7; // Return date is in column H (index 8 in zero-based array)
+
+  // Loop through rows (skip header row)
+  for (let i = 1; i < data.length; i++) {
+    const email = data[i][emailColumnIndex];
+    const returnDate = data[i][returnDateColumnIndex];
+
+    if (email && returnDate) {
+      // Parse and compare return date with today
+      const parsedReturnDate = new Date(returnDate);
+      if (isSameDate(today, parsedReturnDate)) {
+        sendEmailReminder(email);
+      }
+    }
+  }
+}
+
+function sendEmailReminder(email) {
+  const subject = "Book Return Reminder";
+  const body = `
+    Dear User,
+
+    This is a friendly reminder that today is your book return date. Please return the book to avoid any late fees.
+
+    Thank you,
+    Library Team
+  `;
+  GmailApp.sendEmail(email, subject, body);
+}
+
+function isSameDate(date1, date2) {
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  );
+}

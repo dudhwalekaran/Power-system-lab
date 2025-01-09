@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="iit.png" type="image/x-icon" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="bg-gray-800 text-white p-4 flex items-center justify-between">
+      <!-- Left side (Logo) -->
+      <div class="flex items-center space-x-2">
+        <a href="https://www.iitb.ac.in/" target="_blank">
+          <img src="iit.png" alt="Logo" class="h-20 w-20 ml-4" />
+        </a>
+      </div>
+
+      <!-- Navbar items (Center) -->
+      <div class="flex space-x-8 mx-auto">
+        <a
+          href="https://www.ee.iitb.ac.in/course/~emlab/assets/lab_Library.pdf"
+          class="hover:text-yellow-400 text-2xl font-semibold transition duration-300"
+          target="_blank"
+          >Library</a
+        >
+        <a
+          href="tools.html"
+          class="hover:text-yellow-400 text-2xl font-semibold transition duration-300"
+          target="_blank"
+          >Tools</a
+        >
+        <a
+          href="#"
+          class="hover:text-yellow-400 text-2xl font-semibold transition duration-300"
+          >No. of PC's</a                        
+        >
+      </div>
+
+      <!-- Right side (Logo or other items) -->
+      <div class="flex items-center space-x-2 mt-2">
+        <a href="/navbar.html">
+          <img src="iit.png" alt="Go to home" class="h-20 w-20 mr-4" />
+          <p>Go to home</p>
+        </a>
+      </div>
+    </nav>
+
+    <div
+      class="font-semibold text-lg p-8 space-y-8 max-w-screen-lg mx-auto bg-white shadow-lg rounded-lg"
+    >
+      <!-- PDF Link Section -->
+      <div
+        class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+      >
+        <a
+          href="https://www.ee.iitb.ac.in/course/~emlab/assets/lab_Library.pdf"
+          target="_blank"
+          class="flex items-center space-x-3 text-gray-700 hover:text-blue-600"
+        >
+          <img
+            src="/public/pdf.png"
+            alt="PDF Logo"
+            class="h-8 w-auto rounded-md"
+          />
+          <span class="font-medium text-lg"
+            >PDF file for all the books in the library</span
+          >
+        </a>
+      </div>
+
+      <!-- Excel Book Sheet Link Section -->
+      <div
+        class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+      >
+        <a
+          href="https://docs.google.com/spreadsheets/d/1JE8dekFtl8nRf9ugVjGcmOwo72homOud6lJizzsX0ZQ/edit?usp=sharing"
+          target="_blank"
+          class="flex items-center space-x-3 text-gray-700 hover:text-blue-600"
+        >
+          <img
+            src="/public/excel.png"
+            alt="Excel Logo"
+            class="h-8 w-auto rounded-md"
+          />
+          <span class="font-medium text-lg"
+            >Excel sheet for all the Book records</span
+          >
+        </a>
+      </div>
+
+      <!-- Excel Machine Sheet Link Section -->
+      <div
+        class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+      >
+        <a
+          href="https://docs.google.com/spreadsheets/d/1gr_0wAU0B0AuCWHfeRY5eE5LcFH3lv6LUXFE3sRdZPE/edit?usp=sharing"
+          target="_blank"
+          class="flex items-center space-x-3 text-gray-700 hover:text-blue-600"
+        >
+          <img
+            src="/public/excel.png"
+            alt="Excel Logo"
+            class="h-8 w-auto rounded-md"
+          />
+          <span class="font-medium text-lg"
+            >Excel sheet for all the machine records</span
+          >
+        </a>
+      </div>
+
+      <!-- QR Code Section (Side by Side with Text) -->
+      <h2 class="text-xl font-semibold text-gray-800 mt-8 text-center">
+        Scan the following QR codes to get any book or machine:
+      </h2>
+      <div class="flex justify-between items-center mt-6 space-x-12">
+        <!-- Left QR Code with Text -->
+        <div class="flex justify-start items-center space-x-4">
+          <img
+            src="qrcode.png"
+            alt="Scan this QR code"
+            class="w-48 h-48 border-2 border-gray-300 rounded-lg shadow-lg"
+          />
+          <span class="text-lg font-medium text-gray-700">Get Book</span>
+        </div>
+
+        <!-- Right QR Code with Text -->
+        <div class="flex justify-end items-center space-x-4">
+          <span class="text-lg font-medium text-gray-700">Get Machine</span>
+          <img
+            src="machineformqr.png"
+            alt="Scan this QR code"
+            class="w-48 h-48 border-2 border-gray-300 rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+
+      <div class="flex justify-center items-center">
+        <a href="login.html"
+          ><button class="bg-red-600 px-5 py-2 rounded-md text-white">
+            Log Out
+          </button></a
+        >
+      </div>
+
+
+       <!-- Button to Open Modal -->
+    <button
+    id="openFormButton"
+    class="w-64 ml-6 bg-green-600 text-white py-2 rounded-lg font-semibold mt-4"
+  >
+    Upload Video
+  </button>
+
+  <!-- Modal (Initially Hidden) -->
+  <div
+    id="videoModal"
+    class="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center"
+  >
+    <div class="bg-white p-8 rounded-lg max-w-4xl w-full space-y-4">
+      <!-- Modal Close Button -->
+      <button
+        id="closeModalButton"
+        class="absolute top-4 right-4 text-gray-700 text-2xl"
+      >
+        &times;
+      </button>
+
+      <!-- Video Add Form -->
+      <form
+        action="http://localhost:5000/api/add-video"
+        method="POST"
+        id="videoForm"
+        class="space-y-6 grid grid-cols-1 lg:grid-cols-2 gap-6"
+        enctype="multipart/form-data"
+      >
+        <div class="space-y-2">
+          <label for="videoTitle" class="text-lg font-medium text-gray-700"
+            >Video Title</label
+          >
+          <input
+            type="text"
+            id="videoTitle"
+            name="title"
+            class="w-full p-3 border rounded-md"
+            required
+          />
+        </div>
+
+        <div class="space-y-2">
+          <label for="videoSubtitle" class="text-lg font-medium text-gray-700"
+            >Video Subtitle</label
+          >
+          <input
+            type="text"
+            id="videoSubtitle"
+            name="subtitle"
+            class="w-full p-3 border rounded-md"
+            required
+          />
+        </div>
+
+        <div class="space-y-2">
+          <label
+            for="videoDescription"
+            class="text-lg font-medium text-gray-700"
+            >Video Description</label
+          >
+          <textarea
+            id="videoDescription"
+            name="description"
+            class="w-full p-3 border rounded-md"
+            required
+          ></textarea>
+        </div>
+
+        <div class="space-y-2">
+          <label for="videoUrl" class="text-lg font-medium text-gray-700">
+            Video URL iFrame (YouTube)
+          </label>
+          <input
+            type="url"
+            id="videoUrl"
+            name="url"
+            class="w-full p-3 border rounded-md"
+            placeholder="Enter YouTube URL"
+            onchange="toggleFileInput()"
+            required
+          />
+        </div>
+        
+        <!-- Video Upload Option -->
+        <div class="space-y-2">
+          <label for="videoFile" class="text-lg font-medium text-gray-700">
+            Or Upload a Video
+          </label>
+          <input
+            type="file"
+            id="videoFile"
+            name="videoFile"
+            accept="video/*"
+            class="w-full p-3 border rounded-md"
+            onchange="toggleUrlInput()"
+          />
+        </div>
+        
+
+        <!-- Buttons: Left and Right Aligned -->
+        <div class="flex justify-between items-center col-span-2">
+          <button
+            type="submit"
+            class="w-full lg:w-1/2 bg-blue-600 text-white py-2 rounded-lg font-semibold"
+          >
+            Add Video
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <script>
+    function toggleFileInput() {
+      const fileInput = document.getElementById('videoFile');
+      const urlInput = document.getElementById('videoUrl');
+  
+      if (urlInput.value) {
+        fileInput.disabled = true;
+      } else {
+        fileInput.disabled = false;
+      }
+    }
+  
+    function toggleUrlInput() {
+      const fileInput = document.getElementById('videoFile');
+      const urlInput = document.getElementById('videoUrl');
+  
+      if (fileInput.files.length > 0) {
+        urlInput.disabled = true;
+      } else {
+        urlInput.disabled = false;
+      }
+    }
+  </script>
+  
+  <script src="qr.js"></script>
+    </div>
+  </body>
+</html>

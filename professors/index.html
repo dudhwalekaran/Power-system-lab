@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library</title>
+  <!-- Tailwind CSS CDN link -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Simulating a dynamic fetch from JSON or external source
+      const books = [
+        {
+          title: "The Great Gatsby",
+          author: "F. Scott Fitzgerald",
+          genre: "Fiction",
+          year: 1925,
+          description: "A novel about the American dream.",
+          coverImage: "https://covers.openlibrary.org/b/id/5557775-L.jpg"
+        },
+        {
+          title: "1984",
+          author: "George Orwell",
+          genre: "Dystopian",
+          year: 1949,
+          description: "A totalitarian regime in a dystopian world.",
+          coverImage: "https://covers.openlibrary.org/b/id/7222246-L.jpg"
+        },
+        {
+          title: "To Kill a Mockingbird",
+          author: "Harper Lee",
+          genre: "Fiction",
+          year: 1960,
+          description: "A young girl learns about injustice in the South.",
+          coverImage: "https://covers.openlibrary.org/b/id/12907439-M.jpg"
+        },
+        {
+          title: "Fight Club",
+          author: "Chuch Palahnuik",
+          genre: "Fiction",
+          year: 1996,
+          description: "Insomnia leads to nihilism, violence, and societal rebellion.",
+          coverImage: "https://covers.openlibrary.org/b/id/9243864-M.jpg"
+        },
+        {
+          title: "The Hobbit",
+          author: "J.R.R. Tolkien",
+          genre: "Fantasy",
+          year: 1937,
+          description: "The journey of Bilbo Baggins in Middle-Earth.",
+          coverImage: "https://covers.openlibrary.org/b/id/3052154-L.jpg"
+        },
+        // Add more books as needed
+      ];
+
+      const searchInput = document.getElementById('search');
+      const genreFilter = document.getElementById('genre-filter');
+      const bookGrid = document.getElementById('book-grid');
+      const footer = document.getElementById('footer');
+
+      // Function to display books
+      function displayBooks(filteredBooks) {
+        bookGrid.innerHTML = '';
+        if (filteredBooks.length === 0) {
+          bookGrid.innerHTML = '<p class="text-center text-gray-600">No books found.</p>';
+        }
+        filteredBooks.forEach(book => {
+          const bookCard = document.createElement('div');
+          bookCard.classList.add('bg-white', 'p-4', 'rounded-lg', 'shadow-xl', 'transition', 'duration-300', 'hover:shadow-2xl', 'transform', 'hover:scale-105');
+          bookCard.innerHTML = `
+            <img src="${book.coverImage}" alt="${book.title}" class="w-full h-64 object-cover rounded-lg mb-4 transition duration-300 transform hover:scale-110">
+            <h2 class="text-xl font-semibold text-gray-800 hover:text-blue-600">${book.title}</h2>
+            <p class="text-gray-600">${book.author}</p>
+            <p class="text-gray-500">${book.year}</p>
+            <p class="text-sm text-gray-700 mt-2">${book.description}</p>
+          `;
+          bookGrid.appendChild(bookCard);
+        });
+      }
+
+      // Initial display of books
+      displayBooks(books);
+
+      // Function to filter books based on search and genre
+      function filterBooks() {
+        const searchQuery = searchInput.value.toLowerCase();
+        const genreQuery = genreFilter.value.toLowerCase();
+
+        const filteredBooks = books.filter(book => {
+          const matchesSearch = book.title.toLowerCase().includes(searchQuery) ||
+                                book.author.toLowerCase().includes(searchQuery);
+          const matchesGenre = genreQuery ? book.genre.toLowerCase() === genreQuery : true;
+          return matchesSearch && matchesGenre;
+        });
+
+        displayBooks(filteredBooks);
+      }
+
+      // Event listeners for search and genre filter
+      searchInput.addEventListener('input', filterBooks);
+      genreFilter.addEventListener('change', filterBooks);
+    });
+  </script>
+  <style>
+    /* Ensures the footer stays at the bottom */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Header Section -->
+  <header class="bg-black p-6 text-white text-center shadow-lg">
+    <h1 class="text-4xl font-bold">Welcome to the Digital Library</h1>
+    <p class="mt-2 text-lg">Explore thousands of books with ease</p>
+  </header>
+
+  <main class="container mx-auto p-6">
+    <!-- Search and Filter Section -->
+    <div class="flex justify-between mb-6 items-center">
+      <div class="relative w-2/5">
+        <input id="search" type="text" class="px-4 py-2 w-full border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" placeholder="Search books by title or author">
+      </div>
+      <div class="w-1/3">
+        <select id="genre-filter" class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+          <option value="">All Genres</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Dystopian">Dystopian</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Non-fiction">Non-fiction</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Book Grid -->
+    <div id="book-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="footer" class="bg-gray-800 text-white text-center py-4 mt-10">
+    <p class="text-sm">&copy; 2025 Digital Library. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

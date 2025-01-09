@@ -1,0 +1,470 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    height: auto;
+  }
+  
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #333333;
+  color: white;
+  position: relative;
+  height: 120px;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.hamburger .line {
+  width: 30px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+body.light-mode .hamburger .line {
+  background-color: black; /* Line color for light mode */
+}
+
+body.dark-mode .hamburger .line {
+  background-color: white; /* Line color for dark mode */
+}
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  font-size: larger;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size:x-large;
+  font-weight: 50;
+  transition: color 0.3s;
+}
+
+/* Positioning for dropdown */
+.nav-item {
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  padding: 10px;
+  width: 200px;
+  padding-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 1px;
+}
+
+.dropdown a {
+  display: block;
+  color: black;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: large;
+}
+
+.dropdown a:hover {
+  color: #000;
+  background-color: #e3f5b5;
+  border-radius: 10px;
+}
+
+.nav-item:hover .dropdown {
+  display: block;
+}
+  
+  /* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 120px;
+  left: -250px; /* Hidden initially */
+  width: 250px;
+  height: 100%;
+  background-color: #626382;
+  transition: 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.sidebar.open {
+  left: 0; /* Slide into view */
+}
+
+.sidebar .menu {
+  list-style: none;
+  padding: 20px;
+}
+
+.sidebar .menu li {
+  margin: 20px 0;
+}
+
+.sidebar .menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.sidebar .menu li a:hover {
+  color: #00bcd4;
+}
+
+/* Hamburger Animation */
+.hamburger.active .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+  
+/* General Container for Flex Layout */
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows wrapping for mobile screens */
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Box Styling (Left Side) */
+.box {
+  flex: 1;
+  min-width: 320px;
+  max-width: 350px;
+  background: linear-gradient(
+    145deg,
+    #f1f1f1,
+    #e2e2e2
+  ); /* Gradient background for visual interest */
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content List with fast scroll */
+.content-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: scrollUp 18s linear infinite; /* Faster scroll animation */
+}
+
+.content-list li {
+  padding: 12px 0;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.5;
+  border-bottom: 1px solid #ddd;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Right Content Styling */
+.right-content {
+  flex: 2;
+  max-width: 650px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.right-content .heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.right-content .paragraph {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.right-content .btn {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.right-content .btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .box {
+    max-width: 100%;
+  }
+
+  .right-content {
+    max-width: 100%;
+  }
+
+  .content-list li {
+    font-size: 1rem;
+  }
+
+  .right-content .heading {
+    font-size: 1.8rem;
+  }
+
+  .right-content .paragraph {
+    font-size: 1rem;
+  }
+}
+
+/* Related News Section */
+.related-news {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  height: 100%; /* Ensures it takes the full height of the parent container */
+}
+
+/* Styling for Related News list items */
+.related-news h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.related-news ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-news li {
+  padding: 10px 0;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  border-bottom: 1px solid #ddd;
+}
+
+.related-news li:last-child {
+  border-bottom: none;
+}
+
+/* Light Mode (Default) */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.nav-links a {
+  color: #000000;
+}
+
+button#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.navbar.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.nav-links a.dark-mode {
+  color: #ffffff;
+}
+
+
+.dropdown a.dark-mode {
+  color: black;
+}
+
+.dropdown a:hover{
+  color: black;
+}
+
+
+.nav-item a:hover{
+  color: #f50515;
+}
+
+button#theme-toggle.dark-mode {
+  color: #ffffff;
+}
+
+/* Research Highlights Section */
+.research-highlights {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual Highlight Box */
+.highlight-box {
+  width: 30%;
+  background-color: #f4f4f4; /* Default light mode background */
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-box img {
+  width: 100%;
+  height: auto;
+}
+
+.highlight-content {
+  padding: 15px;
+}
+
+.highlight-date {
+  font-size: 14px;
+  color: #888;
+}
+
+.highlight-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: black;
+}
+
+.highlight-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Dark Mode Styling */
+body.dark .highlight-box {
+  background-color: #2d2d2d; /* Dark background for dark mode */
+  color: white; /* White text color for dark mode */
+}
+
+body.dark .highlight-date {
+  color: #bbb; /* Lighter date color in dark mode */
+}
+
+body.dark .highlight-title {
+  color: #fff; /* White title in dark mode */
+}
+
+body.dark .highlight-subtitle {
+  color: #ccc; /* Lighter subtitle in dark mode */
+}
+
+.theme-icon {
+  width: 24px; /* Adjust size */
+  height: 24px;
+  vertical-align: middle; /* Align properly */
+  cursor: pointer; /* Makes it clickable */
+}
+
+body.dark-mode .theme-icon {
+  filter: invert(1) brightness(1.5); /* Makes dark icons visible in dark mode */
+}
+
+body:not(.dark-mode) .theme-icon {
+  filter: none; /* No filter needed for light mode */
+}
+
+  .footer{
+    width: 100%;
+    background-color: red;
+    padding: 50px;
+  }
+  .foot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  

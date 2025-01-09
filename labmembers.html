@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professors Showcase</title>
+    <!-- Tailwind CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Hover animation for the professor cards */
+      .professor-card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+      }
+
+      .professor-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Button hover effect */
+      .visit-btn {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .visit-btn:hover {
+        background-color: #00bcd4;
+        transform: translateY(-3px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="container mx-auto p-8">
+      <h1 class="text-4xl font-bold text-center mb-12 text-gray-800">
+        Meet Our Lab Members
+      </h1>
+
+      <!-- Grid Layout for Professors -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8"
+      >
+        <!-- Professor 1 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 1"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 1
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Circuit simulation</p>
+          <p class="text-gray-500 mt-1">Phone: Not Available</p>
+          <p class="text-gray-500 mt-1">Tele: Not Available</p>
+          <p class="text-gray-500 mt-1">Email: Not Available</p>
+          <a
+            href=""
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Professor 2 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 2"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 2
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Not Available</p>
+          <p class="text-gray-500 mt-1">Phone: Not Available</p>
+          <p class="text-gray-500 mt-1">Tele: Not Available</p>
+          <p class="text-gray-500 mt-1">Email: Not Available</p>
+          <a
+            href=""
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Professor 3 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 3"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 3
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Not Available</p>
+          <p class="text-gray-500 mt-1">Phone: Not Available</p>
+          <p class="text-gray-500 mt-1">Tele: Not Available</p>
+          <p class="text-gray-500 mt-1">Email: Not Available</p>
+          <a
+            href=""
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Professor 4 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 4"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 4
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Not Available</p>
+          <p class="text-gray-500 mt-1 flex justify-center items-center">
+            <i class="fa-solid mr-2 fa-tty"></i>
+            <a href="">Phone: Not Available</a>
+          </p>
+          <p class="text-gray-500 mt-1 flex justify-center items-center">
+            <i class="fa-solid mr-2 fa-phone-volume"></i>
+            <a href="">Not Available</a>
+          </p>
+          <p class="text-gray-500 mt-1 flex justify-center items-center">
+            <i class="fas fa-envelope mr-2"></i>
+            <a href="">Not Available/a>
+          </p>
+          <a
+            href="https://www.ee.iitb.ac.in/wiki/faculty/hjbahirat"
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+          
+        </div>
+
+        <!-- Professor 5 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 5"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 5
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Not Available</p>
+          <p class="text-gray-500 mt-1">Phone: Not Available</p>
+          <p class="text-gray-500 mt-1">Tele: Not Available</p>
+          <p class="text-gray-500 mt-1">Email: Not Available</p>
+          <a
+            href=""
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Professor 6 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 6"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 6
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Not Available</p>
+          <p class="text-gray-500 mt-1">Phone: Not Available</p>
+          <p class="text-gray-500 mt-1">Tele: Not Available</p>
+          <p class="text-gray-500 mt-1">Email: Not Available</p>
+          <a
+            href=""
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Professor 7 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 7"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 7
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Not Available</p>
+          <p class="text-gray-500 mt-1">Phone: Not Available</p>
+          <p class="text-gray-500 mt-1">Tele: Not Available</p>
+          <p class="text-gray-500 mt-1">Email: Not Available</p>
+          <a
+            href=""
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Professor 8 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 8"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 8
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Not Available</p>
+          <p class="text-gray-500 mt-1">Phone: Not Available</p>
+          <p class="text-gray-500 mt-1">Tele: Not Available</p>
+          <p class="text-gray-500 mt-1">Email: Not Available</p>
+          <a
+            href=""
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Professor 9 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 9"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 9
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Not Available</p>
+          <p class="text-gray-500 mt-1">Phone: Not Available</p>
+          <p class="text-gray-500 mt-1">Tele: Not Available</p>
+          <p class="text-gray-500 mt-1">Email: Not Available</p>
+          <a
+            href=""
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+
+        <!-- Professor 10 -->
+        <div
+          class="professor-card bg-white border border-black rounded-lg shadow-lg p-6 text-center"
+        >
+          <img
+            src="/lab_members/profile_pic.jpg"
+            alt="Professor 10"
+            class="w-32 h-32 mx-auto rounded-full mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800">
+            Member 10
+          </h3>
+          <p class="text-gray-600 mt-2">Subject: Not Available</p>
+          <p class="text-gray-500 mt-1">Phone: Not Available</p>
+          <p class="text-gray-500 mt-1">Tele: Not Available</p>
+          <p class="text-gray-500 mt-1">Email: Not Available</p>
+          <a
+            href=""
+            class="visit-btn inline-block mt-4 px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            target="_blank"
+            >Visit Website</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

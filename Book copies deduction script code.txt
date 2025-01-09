@@ -1,0 +1,40 @@
+function onFormSubmit(e) {
+  const formResponsesSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses 1");
+  const booksSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Books");
+
+  // Get form submission data
+  const formData = e.values; // Array of form responses
+  const bookName = formData[5]; // Book Name
+  const copiesRequested = parseInt(formData[8], 10); // Copies (convert to integer)
+  const bookId = formData[10]; // Book ID
+
+  // Get all rows from Books sheet
+  const booksData = booksSheet.getDataRange().getValues();
+  let bookFound = false;
+
+  // Loop through Books sheet to find the matching Book Name and ID
+  for (let i = 1; i < booksData.length; i++) {
+    const row = booksData[i];
+    const currentBookName = row[0]; // Column A: Book Name
+    const currentCopies = row[4]; // Column E: Copies
+    const currentBookId = row[5]; // Column F: ID
+
+    if (currentBookName === bookName && currentBookId === bookId) {
+      bookFound = true;
+
+      // Check if enough copies are available
+      if (currentCopies >= copiesRequested) {
+        booksSheet.getRange(i + 1, 5).setValue(currentCopies - copiesRequested); // Update Copies
+        Logger.log(`Successfully deducted ${copiesRequested} copies from "${bookName}" (ID: ${bookId}).`);
+      } else {
+        Logger.log(`Not enough copies available for "${bookName}" (ID: ${bookId}). Requested: ${copiesRequested}, Available: ${currentCopies}`);
+      }
+      break;
+    }
+  }
+
+  // Log if no book was found
+  if (!bookFound) {
+    Logger.log(`Book with Name: "${bookName}" and ID: "${bookId}" not found.`);
+  }
+}
